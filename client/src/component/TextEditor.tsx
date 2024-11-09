@@ -22,7 +22,7 @@ export default function TextEditor() {
   const [socket, setSocket] = useState<Socket>();
   const [quill, setQuill] = useState<Quill>();
   useEffect(() => {
-    const s = io("http://localhost:3001");
+    const s = io("https://realtime-text-editor-x1by.vercel.app/");
     setSocket(s);
     return () => {
       s.disconnect();

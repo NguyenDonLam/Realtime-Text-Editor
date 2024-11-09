@@ -1,9 +1,9 @@
-const io = require("socket.io")(3001 , {
-    cors: {
-        origin: "http://localhost:5173",
-        methods: ["GET", "POST"]
-    }
-})
+const io = require("socket.io")(3001, {
+  cors: {
+    origin: "https://realtime-text-editor-flax.vercel.app/",
+    methods: ["GET", "POST"],
+  },
+});
 
 io.on("connection", socket => {
     socket.on("get-document", documentId => {
