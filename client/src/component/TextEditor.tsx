@@ -1,5 +1,5 @@
 import Quill from "quill";
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import "quill/dist/quill.snow.css";
 import "../styles/TextEditorStyles.css"
 import { io } from "socket.io-client";
@@ -16,16 +16,52 @@ const TOOLBAR_OPTIONS = [
     ["clean"],
 ]
 export default function TextEditor() {
+    const [socket, setSocket] = useState();
+    const [quill, setQuill] = useState();
     useEffect(()=> {
-        io("http://;pca;host:3001");
+        const s = io("http://localhost:3001");
+        setSocket(s)
+        return () => {
+            s.disconnect()
+        }
     }, [])
+
+    // Upon recieving the events
+    useEffect(() => {
+          if (socket == null || quill == null) return;
+
+          const handler = (delta) => {
+            quill.updateContents(delta);
+          };
+          socket.on("recieve-changes", handler);
+
+          return () => {
+            socket.off("recieve-changes", handler);
+          };
+    }, [socket, quill]);
+
+    // Upon changing doc
+    useEffect(() => {
+        if (socket == null || quill == null) return;
+        const handler = (delta, oldDelta, source) => {
+          if (source != "user") return;
+          socket.emit("send-changes", delta);
+        };
+        quill.on("text-change", handler)
+
+        return () => {
+            quill.off("text-change", handler)
+        }
+    }, [socket, quill])
+
     const wrapperRef = useCallback((wrapper) => {
         if (wrapper == null) return
         wrapper.innerHTML = "";
         const editor = document.createElement("div");
         wrapper.append(editor);
-        new Quill(editor, { theme: "snow", modules: {toolbar: TOOLBAR_OPTIONS}} );
-    }, [])
+        const q = new Quill(editor, { theme: "snow", modules: {toolbar: TOOLBAR_OPTIONS}} );
+        setQuill(q);
+        }, [])
     return <div className="container" ref={wrapperRef}></div>;
 }
 
