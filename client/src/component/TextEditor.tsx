@@ -22,7 +22,7 @@ export default function TextEditor() {
   const [socket, setSocket] = useState<Socket>();
   const [quill, setQuill] = useState<Quill>();
   useEffect(() => {
-    const s = io("https://realtime-text-editor-1-xlhg.onrender.com");
+    const s = io("http://localhost:3002");
     setSocket(s);
     return () => {
       s.disconnect();
@@ -57,9 +57,11 @@ export default function TextEditor() {
   // Upon changing doc
   useEffect(() => {
     if (socket == null || quill == null) return;
-    const handler = (delta: Delta, source: string) => {
+    const handler = (delta: Delta, oldDelta: Delta, source: string) => {
       if (source != "user") return;
+      
       socket.emit("send-changes", delta);
+      
     };
     quill.on("text-change", handler);
 
