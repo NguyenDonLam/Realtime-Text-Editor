@@ -1,6 +1,6 @@
 # Realtime-Text-Editor
 
-client via Vercel: https://realtime-text-editor-lvnfhy9g4-nguyendonlams-projects.vercel.app/ \n
+client via Vercel: https://realtime-text-editor-lvnfhy9g4-nguyendonlams-projects.vercel.app/ <br>
 server via Render: https://realtime-text-editor-1-xlhg.onrender.com/
 
 ## How to co-operate
