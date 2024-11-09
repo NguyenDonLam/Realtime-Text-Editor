@@ -3,6 +3,7 @@ const io = require("socket.io")(3002, {
     origin: [
       "https://realtime-text-editor-lvnfhy9g4-nguyendonlams-projects.vercel.app",
       "http://localhost:5174",
+      "https://realtime-text-editor-flax.vercel.app",
     ],
     methods: ["GET", "POST"],
   },
