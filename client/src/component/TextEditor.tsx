@@ -61,6 +61,7 @@ export default function TextEditor() {
       if (source != "user") return;
       
       socket.emit("send-changes", delta);
+      console.log(oldDelta);
       
     };
     quill.on("text-change", handler);
