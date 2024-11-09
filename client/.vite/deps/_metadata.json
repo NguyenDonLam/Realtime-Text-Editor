@@ -1,41 +1,65 @@
 {
-  "hash": "127fa2df",
+  "hash": "bfd47a38",
   "configHash": "ec025cca",
-  "lockfileHash": "e19bca3b",
-  "browserHash": "2b5e6791",
+  "lockfileHash": "eba4417b",
+  "browserHash": "8bbbd18c",
   "optimized": {
     "react/jsx-dev-runtime": {
       "src": "../../node_modules/react/jsx-dev-runtime.js",
       "file": "react_jsx-dev-runtime.js",
-      "fileHash": "f926920c",
+      "fileHash": "b7c80192",
       "needsInterop": true
     },
     "react": {
       "src": "../../node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "34284ad7",
+      "fileHash": "5a10ffb5",
       "needsInterop": true
     },
     "react-dom/client": {
       "src": "../../node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "22fa5c33",
+      "fileHash": "92b4d764",
       "needsInterop": true
     },
     "quill": {
       "src": "../../node_modules/quill/quill.js",
       "file": "quill.js",
-      "fileHash": "ece47d38",
+      "fileHash": "81dcb54b",
       "needsInterop": false
     },
     "socket.io-client": {
       "src": "../../node_modules/socket.io-client/build/esm/index.js",
       "file": "socket__io-client.js",
-      "fileHash": "7e490f28",
+      "fileHash": "f0139239",
+      "needsInterop": false
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "c1b1a289",
+      "needsInterop": false
+    },
+    "uuid": {
+      "src": "../../node_modules/uuid/dist/esm-browser/index.js",
+      "file": "uuid.js",
+      "fileHash": "6b2acd1c",
+      "needsInterop": false
+    },
+    "react-router": {
+      "src": "../../node_modules/react-router/dist/index.js",
+      "file": "react-router.js",
+      "fileHash": "a6e1f787",
       "needsInterop": false
     }
   },
   "chunks": {
+    "chunk-6LM5TWPD": {
+      "file": "chunk-6LM5TWPD.js"
+    },
+    "chunk-JMVEG3FK": {
+      "file": "chunk-JMVEG3FK.js"
+    },
     "chunk-TWJRYSII": {
       "file": "chunk-TWJRYSII.js"
     },
