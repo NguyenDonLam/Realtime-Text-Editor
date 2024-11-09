@@ -1,7 +1,8 @@
 const io = require("socket.io")(3001, {
   cors: {
     origin:
-      "https://realtime-text-editor-69qs9s907-nguyendonlams-projects.vercel.app",
+      "https://realtime-text-editor-69qs9s907-nguyendonlams-projects.vercel.app" ||
+      "http://localhost:5174",
     methods: ["GET", "POST"],
   },
 });

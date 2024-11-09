@@ -22,7 +22,7 @@ export default function TextEditor() {
   const [socket, setSocket] = useState<Socket>();
   const [quill, setQuill] = useState<Quill>();
   useEffect(() => {
-    const s = io("https://realtime-text-editor-1-xlhg.onrender.com/");
+    const s = io("https://realtime-text-editor-1-xlhg.onrender.com");
     setSocket(s);
     return () => {
       s.disconnect();
