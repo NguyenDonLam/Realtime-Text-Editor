@@ -1,12 +1,10 @@
 const mongoose = require("mongoose")
 
 mongoose.connect(
-  "mongodb+srv://realtimetexteditor:<db_password>@sandbox.xztqd.mongodb.net/?retryWrites=true&w=majority&appName=Sandbox", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindandModify: false,
-    useCreateIndex: true,
-});
+  "mongodb+srv://realtimetexteditor:7O06wm0ojoKrmzrL@sandbox.xztqd.mongodb.net/?retryWrites=true&w=majority&appName=Sandbox",
+  {
+  }
+);
 
 const io = require("socket.io")(3002, {
   cors: {
