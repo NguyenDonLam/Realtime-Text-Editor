@@ -6,6 +6,8 @@ import { io, Socket } from "socket.io-client";
 import { useParams } from "react-router";
 import { Delta } from "quill/core";
 
+const SAVE_INTERVAL_MS = 2000;
+
 const TOOLBAR_OPTIONS = [
   [{ header: [1, 2, 3, 4, 5, 6, false] }],
   [{ font: [] }],
@@ -69,6 +71,16 @@ export default function TextEditor() {
     return () => {
       quill.off("text-change", handler);
     };
+  }, [socket, quill]);
+
+  useEffect(() => {
+    if (socket == null || quill == null) return;
+    const interval = setInterval(() => {
+      socket.emit("save-document", quill.getContents())
+    }, SAVE_INTERVAL_MS)
+    return () => {
+      clearInterval(interval)
+    }
   }, [socket, quill]);
 
   const wrapperRef = useCallback((wrapper: HTMLDivElement) => {
