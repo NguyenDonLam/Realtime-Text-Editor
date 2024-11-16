@@ -1,5 +1,7 @@
 const mongoose = require("mongoose")
 
+const Document = require("./Document")
+
 mongoose.connect(
   "mongodb+srv://realtimetexteditor:7O06wm0ojoKrmzrL@sandbox.xztqd.mongodb.net/?retryWrites=true&w=majority&appName=Sandbox",
   {
